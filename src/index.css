@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 * {
   margin: 0;
@@ -29,7 +27,7 @@ canvas {
   position: relative;
   max-width: 1120px;
 }
-
+/* 
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center
@@ -122,4 +120,4 @@ canvas {
   .g_fadeIn {
     @apply opacity-0 translate-y-[100px]
   }
-}
+} */
