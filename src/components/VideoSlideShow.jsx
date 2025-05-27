@@ -133,7 +133,7 @@ const VideoCarousel = () => {
         break;
 
       case "video-last":
-        setVideo((pre) => ({ ...pre, isLastVideo: true, videoId: 0 }));
+        setVideo((pre) => ({ ...pre, isLastVideo: true }));
         break;
 
       case "video-reset":
