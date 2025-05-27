@@ -93,6 +93,21 @@ const Model = () => {
                                     
                                 ))}
                             </ul>
+                            <button className="flex items-center justify-center p-1 rounded-full bg-zinc-900 backdrop-blur ml-3 gap-1">
+                                {sizes.map(({label, value}) => (
+                                    <span 
+                                    key={label} 
+                                    className="w-10 h-10 text-sm flex justify-center items-center bg-white text-black rounded-full transition-all cursor-pointer"
+                                    style={{
+                                        backgroundColor: size === value ? 'white' : 'transparent',
+                                        color: size === value ? 'black' : 'white',
+                                    }}
+                                    onClick={()=> setSize(value)}
+                                    >
+                                        {label}
+                                    </span>
+                                ))}
+                            </button>
                         </div>
                     </div>
                 </div>
