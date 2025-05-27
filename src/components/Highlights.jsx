@@ -1,6 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { rightImg, watchImg } from "../utils";
+import VideoSlideShow from "./VideoSlideShow";
 const Highlights = () => {
   useGSAP(() => {
     gsap.to("#title", {
@@ -38,6 +39,7 @@ const Highlights = () => {
             </p>
           </div>
         </div>
+        <VideoSlideShow/> 
       </div>
     </section>
   );
