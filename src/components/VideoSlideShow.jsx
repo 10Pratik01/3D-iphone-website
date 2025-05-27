@@ -213,7 +213,7 @@ const VideoCarousel = () => {
           ))}
         </div>
 
-        <button className="ml-4 p-4 rounded-full bg-gray-300 backdrop-blur flex items-center justify-center  cursor-pointer">
+        <button className="ml-4 p-4 rounded-full bg-zinc-800 backdrop-blur flex items-center justify-center  cursor-pointer">
           <img
             src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
             alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
