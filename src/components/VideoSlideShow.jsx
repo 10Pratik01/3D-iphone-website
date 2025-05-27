@@ -1,11 +1,12 @@
 import React from "react";
 import { hightlightsSlides } from "../constants";
 import { useEffect, useState, useRef } from "react";
+import { pauseImg, playImg, replayImg } from "../utils";
 
 const VideoSlideShow = () => {
   const videoRef = useRef([]);
-  const videoSpanRed = useRef([]);
-  const videoDivRed = useRef([]);
+  const videoSpanRef = useRef([]);
+  const videoDivRef = useRef([]);
 
   const [video, setVideo] = useState({
     isEnd: false,
@@ -27,6 +28,25 @@ const VideoSlideShow = () => {
         }
     }
   },[startPlay, videoId, isPlaying, loadedData])
+
+  const handleProcess = (type, i) => {
+    switch(type) {
+        case 'video-end':
+            setVideo((pre) => ({...pre, isEnd:true, videoId: i+1}))
+            break; 
+        case 'video-last':
+            setVideo((pre)=> ({...pre, isLastVideo:true}))
+            break;
+        case 'video-reset':
+            setVideo((pre) => ({...pre, isEnd:false , videoId:0, isLastVideo:false}))
+            break; 
+        case "play":
+            setVideo((pre) => ({...pre, isPlaying:!pre.isPlaying }))
+            break; 
+        default: 
+            break; 
+    }
+  }
 
   return (
     <>
@@ -63,9 +83,25 @@ const VideoSlideShow = () => {
       </div>
 
       <div className="relative mt-10 flex items-center justify-center">
-            <div>
-                
+            <div className="flex items-center justify-center py-5 px-5 bg-zinc-700 backdrop-blur rounded-full ">
+                {videoRef.current.map((_,i) => (
+                    <span
+                        key={i}
+                        ref={(el) => (videoRef.current[i] = el )}
+                        className="mx-2 w-3 h-3 bg-gray-200 rounded-full relative cursor-pointer"
+                    >
+                        <span 
+                        className="absolute h-full w-full rounded-full" 
+                        ref={(el) => (videoSpanRef.current[i] = el)}
+                        />
+                    </span>
+                ))}
             </div>
+            <button className="ml-4 p-4 rounded-full bg-zinc-700 backdrop-blur flex items-center justify-center">
+                <img src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg} alt={isLastVideo ? 'replay' : !isPlaying ? 'play' : 'pause'} 
+                onClick={isLastVideo ? () => handleProcess('video-reset') : !isPlaying ? handleProcess('play') : handleProcess('pause') }
+                />
+            </button>
       </div>
     </>
   );
