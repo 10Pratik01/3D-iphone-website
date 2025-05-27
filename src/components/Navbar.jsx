@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className="flex justify-around w-full screem-max-width">
         <img src={appleImg} alt="Apple" width={14} height={18} />
 
-        <div className="flex gap-x-5 ">
+        <div className="flex flex- gap-x-5  max-sm:hidden">
           {navLists.map((nav) => (
             <div key={nav} className="cursor-pointer text-gray-500 hover:text-white transition-all">
               {nav}
