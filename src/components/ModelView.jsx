@@ -4,13 +4,14 @@ import Lights from "./Lights";
 import IphoneModel from "./IphoneModel";
 import { Suspense } from "react";
 import * as THREE from "three";
+import Loader from "./Loader";
 
 const ModelView = ({
   index,
   groupRef,
   gsapType,
   controlRef,
-  setRotationSize,
+  setRotationState,
   size,
   item,
 }) => {
@@ -46,7 +47,11 @@ const ModelView = ({
         <Suspense
         fallback={
           <Html>
-            <div>Loading...</div>
+            <div className='flex justify-center text-center absolute top-0 left-0 w-full h-full'>
+                <div className='w-[15vw] h-[15vw] rounded-full'>
+                    Loader... 
+                </div>
+            </div>
           </Html>
         }
       >

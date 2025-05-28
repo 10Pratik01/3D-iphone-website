@@ -1,10 +1,26 @@
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
-
+import React, { useEffect, useRef } from "react";
+import { useGLTF, useTexture } from "@react-three/drei";
+import * as THREE from "three";
 function Model(props) {
-  const { nodes, materials } = useGLTF('/models/scene.glb')
+  const { nodes, materials } = useGLTF("/models/scene.glb");
 
-    
+  const texture = useTexture(props.item.img);
+
+  useEffect(() => {
+    Object.entries(materials).map((material) => {
+      // these are the material names that can't be changed color
+      if (
+        material[0] !== "zFdeDaGNRwzccye" &&
+        material[0] !== "ujsvqBWRMnqdwPx" &&
+        material[0] !== "hUlRcbieVuIiOXG" &&
+        material[0] !== "jlzuBkUzuJqgiAK" &&
+        material[0] !== "xNrofRCqOXXHVZt"
+      ) {
+        material[1].color = new THREE.Color(props.item.color[0]);
+      }
+      material[1].needsUpdate = true;
+    });
+  }, [materials, props.item]);
 
   return (
     <group {...props} dispose={null}>
@@ -119,7 +135,9 @@ function Model(props) {
         geometry={nodes.xXDHkMplTIDAXLN.geometry}
         material={materials.pIJKfZsazmcpEiU}
         scale={0.01}
-      />
+      >
+        <meshStandardMaterial roughness={1} map={texture}/>
+      </mesh>
       <mesh
         castShadow
         receiveShadow
@@ -226,7 +244,7 @@ function Model(props) {
         scale={0.01}
       />
     </group>
-  )
+  );
 }
-export default Model
-useGLTF.preload('/models/scene.glb')
+export default Model;
+useGLTF.preload("/models/scene.glb");
