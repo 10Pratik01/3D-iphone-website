@@ -8,7 +8,6 @@ import { View } from "@react-three/drei";
 import * as THREE from "three";
 import { models, sizes } from "../constants";
 import { animateWithGsapTimeline } from "../utils/animation";
-import { transform } from "esbuild";
 
 const Model = () => {
   const [size, setSize] = useState("small");
@@ -27,22 +26,23 @@ const Model = () => {
   const large = useRef(new THREE.Group());
 
   //rotation
-  const [smallrotation, setSmallRotation] = useState(0);
-  const [largerotation, setLargeRotation] = useState(0);
+  const [smallRotation, setSmallRotation] = useState(0);
+  const [largeRotation, setLargeRotation] = useState(0);
 
   const tl = gsap.timeline();
   useEffect(() => {
     if (size === "large") {
-        animateWithGsapTimeline(tl, small, smallrotation, '#view1', '#view2', {
-            transform: 'translateX(-100%)', 
-            duration: 2
-        })
+      animateWithGsapTimeline(tl, small, smallRotation, "#view1", "#view2", {
+        transform: "translateX(-100%)",
+        duration: 2,
+      });
     }
+
     if (size === "small") {
-        animateWithGsapTimeline(tl, large, largerotation, '#view2', '#view1', {
-            transform: 'translateX(0%)', 
-            duration: 2
-        })
+      animateWithGsapTimeline(tl, large, largeRotation, "#view2", "#view1", {
+        transform: "translateX(0)",
+        duration: 2,
+      });
     }
   }, [size]);
 

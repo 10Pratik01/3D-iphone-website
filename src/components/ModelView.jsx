@@ -48,7 +48,7 @@ const ModelView = ({
         fallback={
           <Html>
             <div className='flex justify-center text-center absolute top-0 left-0 w-full h-full'>
-                <div className='w-[15vw] h-[15vw] rounded-full'>
+                <div className='w-[10vw] h-[10vw] rounded-full'>
                     Loader... 
                 </div>
             </div>
