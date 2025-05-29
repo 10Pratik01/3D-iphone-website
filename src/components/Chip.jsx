@@ -70,9 +70,9 @@ const Chip = () => {
                 className="bg-transparent relative z-10"
               />
             </div>
-            <div className="absolute w-[95%] h-[90%] rounded-[56px] overflow-hidden">
+            <div className="absolute w-[95%] h-[90%] rounded-[56px] overflow-hidden flex items-center justify-center ">
               <video
-                className="pointer-events-none"
+                className="pointer-events-none rounded-4xl"
                 playsInline
                 preload="none"
                 autoPlay
