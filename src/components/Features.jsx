@@ -87,7 +87,7 @@ const Features = () => {
                         <p className='text-gray-500 max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px] g_text'>
                             iPhone 15 Pro is {''}
                             <span className='text-white'> 
-                                the first iPhone to feature an aerospace-grade titanium design 
+                                the first iPhone to feature an aerospace-grade titanium design  {' '}
                             </span>
                              using the same alloy that spacecrafts use for the mission to Mars. 
                         </p>
