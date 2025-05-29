@@ -21,17 +21,23 @@ const Chip = () => {
       ease: 'power2.inOut'
     })
 
-    gsap.to("#g_fadeIn", {
+    // gsap.to(".g_fadeIn", {
+    //   opacity: 1,
+    //   y: 0,
+    //   duration: 1,
+    //   ease: "power2.inOut",
+    //   scrollTrigger: {
+    //     trigger: '.g_fadeIn',
+    //     toggleActions: "restart, reverse, restart, reverse",
+    //     start: "top 85%",
+    //   },
+    // });
+    animatewithGsap('.g_fadeIn', {
       opacity: 1,
       y: 0,
       duration: 1,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        trigger: '#g_fadeIn',
-        toggleActions: "restart, reverse, restart, reverse",
-        start: "top:85%",
-      },
-    });
+      ease: 'power2.inOut'
+    })
   }, []);
 
   return (
@@ -84,8 +90,8 @@ const Chip = () => {
         <div className="flex md:flex-row flex-col justify-between items-start gap-24">
           <div className="flex flex-1 justify-center flex-col">
             <p
-              id="g_fadeIn"
-              className="text-gray-700 text-xl font-normal mb:10 md:font-semibold "
+              
+              className="text-gray-700 text-xl font-normal mb:10 md:font-semibold g_fadeIn"
             >
               A17 Pro is an entirely new class of iPhone chip that delivers our{" "}
               {""}
@@ -96,8 +102,8 @@ const Chip = () => {
             </p>
 
             <p
-              id="g_fadeIn"
-              className="text-gray-700 text-xl font-normal md:font-semibold "
+              
+              className="text-gray-700 text-xl font-normal md:font-semibold g_fadeIn "
             >
               Mobile {""}
               <span className="text-white">
