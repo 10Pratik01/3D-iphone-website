@@ -67,16 +67,16 @@ const Model = () => {
             <ModelView
               index={1}
               groupRef={small}
-              gsapType="View1"
+              gsapType="view1"
               controlRef={CameraControlSmall}
               setRotationState={setSmallRotation}
               item={model}
               size={size}
             />
             <ModelView
-              index={1}
+              index={2}
               groupRef={large}
-              gsapType="View2"
+              gsapType="view2"
               controlRef={CameraControlLarge}
               setRotationState={setLargeRotation}
               item={model}
