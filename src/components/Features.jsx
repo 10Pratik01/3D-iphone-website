@@ -10,8 +10,10 @@ gsap.registerPlugin(ScrollTrigger);
 const Features = () => {
     const videoRef = useRef()
 
-  useGSAP(() => {
-     gsap.to('#exploreVideo', {
+  // 
+  
+   useGSAP(() => {
+    gsap.to('#exploreVideo', {
       scrollTrigger: {
         trigger: '#exploreVideo',
         toggleActions: 'play pause reverse restart',
@@ -22,45 +24,20 @@ const Features = () => {
       }
     })
 
-    animatewithGsap("#features_title", { y: 0, opacity: 1 });
-    // animatewithGsap(".g_grow", {scale:1, y:0, opacity:1, ease:'power1'}, {scrub:5.5})
-    gsap.to('.g_grow', {
-        scale:1, 
-        opacity:1, 
-        ease:'power1',
-        scrollTrigger:{
-            trigger:".g_grow",
-            start:"top 90%",
-            scrub:5.5,
-        }
-    });
-    // animatewithGsap(".g_text", { y:0, opacity: 1, ease:'power2.inOut', duration:1 }, );
-    gsap.to('.g_text', {
-        y:0, 
-        opacity:1,
-        duration:1,
-        ease:'power2.inOut',
-        scrollTrigger:{
-            trigger:".g_text",
-            start:"top 95%",
-            
-        }
-    })
-    gsap.to('.g_text2', {
-        y:0, 
-        opacity:1,
-        duration:1,
-        ease:'power2.inOut',
-        scrollTrigger:{
-            trigger:".g_text",
-            start:"top 95%",
-            
-        }, 
-        delay:0.2, 
-    })
+    animatewithGsap('#features_title', { y:0, opacity:1})
+    animatewithGsap(
+      '.g_grow',
+      { scale: 1, opacity: 1, ease: 'power1' },
+      { scrub: 5.5 }
+    );
+    animatewithGsap(
+      '.g_text',
+      {y:0, opacity: 1,ease: 'power2.inOut',duration: 1}
+    )
   }, []);
+
   return (
-    <section className="h-full sm:py-32 py-20 sm:px-10 px-5 bg-zinc relative overflow-hidden">
+    <section className="h-full sm:py-20 py-16 sm:px-10 px-5 bg-zinc relative overflow-hidden">
       <div className="screen-max-width">
         <div className="mb-12 w-full">
           <h1
@@ -74,7 +51,7 @@ const Features = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center overflow-hidden">
-        <div className="mt-32 mb-24 pl-24 ">
+        <div className="mt-15 mb-22 pl-24 ">
           <h2 className="text-5xl lg:test-7xl font-semibold">iPhone.</h2>
           <h2 className="text-5xl lg:test-7xl font-semibold">
             Forged in titanium.{" "}
@@ -112,11 +89,11 @@ const Features = () => {
                             <span className='text-white'> 
                                 the first iPhone to feature an aerospace-grade titanium design 
                             </span>
-                            using the same alloy that spacecrafts use for the mission to Mars. 
+                             using the same alloy that spacecrafts use for the mission to Mars. 
                         </p>
                     </div>
                     <div className='flex-1 flex justify-center items-center'>
-                        <p className='text-gray-500 max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px] g_text2'>
+                        <p className='text-gray-500 max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px] g_text'>
                             Titanium has one of the best strength-to-weigth ratios of any metal, making these our{''}
                             <span className='text-white'> 
                                 lightest Pro models ever. 
